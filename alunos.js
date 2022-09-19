@@ -688,12 +688,41 @@ var alunos = [
 
 
     function getAlunos (siglaCurso){
-        alunos.forEach(item => {
-            item.curso.filter().forEach((item2)=>{
-                if (item2.sigla === siglaCurso) {
-                    console.log(item.nome)
+        let lista=[]
+        let listAlunos = {}
+        alunos.forEach(item =>{
+            item.curso.forEach(item2=>{
+                if (item2.sigla == siglaCurso) {
+                    lista.push(
+                        {
+                            nome: item.nome,
+                            sigla: item2.sigla,
+                        }
+                    )
+                    
                 }
-            }) 
-        });
+                
+            })
+        })
+        listAlunos.alunos = lista
+        return listAlunos
     }
-console.log(getAlunos('DS'))
+
+
+    console.log(getAlunos('RDS'));
+    
+
+
+function getAlunosByid (numeroMatricula){
+    let listId = {}
+    let listAlunosByid = []
+    alunos.forEach(item3=>{
+        if (item3 == numeroMatricula) {
+            listAlunosByid.push (
+                {
+                    fo: item3.
+                }
+            )
+        }
+    })
+} 

@@ -13,6 +13,7 @@ var cursos = [
     }
 ];
 const getCursos = function(){
+    curselist = []
     cursos.forEach(item => {
         
     });

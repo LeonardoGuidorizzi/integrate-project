@@ -8,9 +8,24 @@
 }
 span{
     color: #ffff;
+    font-family: roboto;
 }
 h1{
-    color: #000;
+   
+    font-family: Roboto;
+font-size: 57px;
+font-weight: 700;
+line-height: 67px;
+letter-spacing: 0em;
+text-align: left;
+
+font-family: Roboto;
+font-size: 57px;
+font-weight: 300;
+line-height: 67px;
+letter-spacing: 0em;
+text-align: left;
+
 }
 strong{
     color: blue;
