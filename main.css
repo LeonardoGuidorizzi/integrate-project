@@ -1,0 +1,30 @@
+main{
+    background-color:#fff;
+    height: 462px;
+    width: 100%;
+    left: 96px;
+    top: 200px;
+    display: flex;
+}
+
+.curser-container{
+    display: flex;
+    
+}
+.curse-ds{
+background-color:#3347B0;
+height: 200px;
+width: 400px;
+margin: 30px;
+
+}
+.curse-redes{
+background-color: #3347B0;
+height: 200px;
+width: 400px;
+margin: 30px;
+}
+.aparelhos{
+    max-width: 436px;
+    max-height: 262px;
+}

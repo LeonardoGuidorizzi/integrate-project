@@ -1,0 +1,17 @@
+header{
+    background-color: #3347B0;
+    height: 6.25rem;
+    padding: 0 5.9375rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.lion{
+    margin-top: 10px;
+}
+.sair{
+    flex-direction: column;
+    justify-content: center;
+}
