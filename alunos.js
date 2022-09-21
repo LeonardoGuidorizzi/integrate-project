@@ -1,4 +1,3 @@
-import axios from "axios";
 var alunos = [
      
     {       "foto"  : "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-4-avatar-2754580_120522.png",
@@ -713,16 +712,42 @@ var alunos = [
     
 
 
+ function getAlunosByStatus(status){
+    let listStatus = []
+    let listStatusJson ={}
+
+    alunos.forEach(item4 =>{
+      item4.curso.forEach(item5 =>{
+        
+      })
+    })
+ }
+
+
+
+
+
+
+
+
+
+
+
 function getAlunosByid (numeroMatricula){
     let listId = {}
     let listAlunosByid = []
     alunos.forEach(item3=>{
-        if (item3 == numeroMatricula) {
-            listAlunosByid.push (
-                {
-                    fo: item3.
-                }
-            )
-        }
+      if (item3.matricula == numeroMatricula ) {
+        listAlunosByid.push(
+            {
+                foto: item3.foto,
+                nome: item3.nome
+                
+            }
+        )
+      }
     })
+    listId.alunos = listAlunosByid
+    return listId
 } 
+console.log(getAlunosByid('20151001024'))
