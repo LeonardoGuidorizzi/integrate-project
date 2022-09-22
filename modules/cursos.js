@@ -13,9 +13,19 @@ var cursos = [
     }
 ];
 const getCursos = function(){
+    curselistJSON = {}
     curselist = []
     cursos.forEach(item => {
-        
+        curselist.push({
+            nome:item.nome,
+            sigla:item.sigla,
+            icone:item.icone,
+            carga:item.carga
+        })
     });
+    curselistJSON.cursos = curselist
+    return curselistJSON
 }
-
+module.exports = {
+    getCursos
+}
