@@ -12,14 +12,9 @@ const {getCursos} = require('./modules/cursos')
 
 const app = express();
 
-app.use((request, response, next) => {
-    response.header('Access-Control-Allow-Origin', '*')
-    response.header('Access-Control-Allow-Methods', 'GET, POST,PUT,DELETE, OPTIONS')
-    app.use(cors())
-    next()
-})
+const cors = require (cors)
 
-app.get('/curso/', cors(), async function (request, response, next) {
+app.get('/curso/', async function (request, response, next) {
 
 
     //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
@@ -39,11 +34,11 @@ app.get('/curso/', cors(), async function (request, response, next) {
 
 
 
-    app.get('/cursoAlunos/', cors(), async function (request, response, next) {
+    app.get('/cursoAlunos/', async function (request, response, next) {
 
 
         //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
-        let nomeCursoAlunos = request.query.nomeCursoAlunos
+        let nomeCursoAlunos = request.params.siglaAlunosCurso
         console.log(nomeCursoAlunos)
     
         //chama a funcao e encaminha a palavra chave 
@@ -56,6 +51,26 @@ app.get('/curso/', cors(), async function (request, response, next) {
         }
     
     })
+
+    app.get('/cursoAlunos/:numeroAluno', async function (request, response, next) {
+
+
+        //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
+        let numeroAluno = request.params.numeroAluno
+        console.log(numeroAluno)
+    
+        //chama a funcao e encaminha a palavra chave 
+        let aluno = getAlunosById(numeroMatricula)
+        if (aluno) {
+            response.status(200)
+            response.json(aluno)
+        } else {
+            response.status(404)
+        }
+    
+    })
+
+
     
     app.listen(3000, function(){
         console.log('aguardando servidor')})

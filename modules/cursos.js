@@ -12,16 +12,19 @@ var cursos = [
         "carga" :   "1200"
     }
 ];
-const getCursos = function(){
+//feito
+const getCursos = function(siglaCurso){
     curselistJSON = {}
     curselist = []
     cursos.forEach(item => {
+       if (siglaCurso == item.sigla) {
         curselist.push({
             nome:item.nome,
             sigla:item.sigla,
             icone:item.icone,
             carga:item.carga
         })
+       }
     });
     curselistJSON.cursos = curselist
     return curselistJSON

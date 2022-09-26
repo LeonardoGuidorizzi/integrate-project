@@ -686,13 +686,14 @@ var alunos = [
     }
 ];
 
-
+//feito
 function getAlunos(siglaAlunosCurso) {
+    console.log(siglaAlunosCurso)
     let lista = []
     let listAlunos = {}
     alunos.forEach(item => {
         item.curso.forEach(item2 => {
-            if (item2.sigla == siglaAlunosCurso) {
+            if (item2.sigla.toLowerCase() == siglaAlunosCurso.toLowerCase()) {
                 lista.push(
                     {
                         nome: item.nome,
@@ -713,45 +714,49 @@ function getAlunos(siglaAlunosCurso) {
 }
 
 
+function getAlunosById(numeroMatricula) {
+    return alunos.filter(index => numeroMatricula == index.matricula);
+}
 
 
 
-
-
-
-function getAlunosByid(numeroMatricula) {
-    let listId = {}
-    let listAlunosByid = []
-    alunos.forEach(item3 => {
-        if (item3.matricula == numeroMatricula) {
-            listAlunosByid.push(
-                {
-                    foto: item3.foto,
-                    nome: item3.nome,
-                    materias: []
-
-                }
-            )
-            item3.curso.forEach(curso => {
-                curso.disciplinas.forEach(disciplina => {
-                    listAlunosByid[0].materias.push(
-                        {
-                            nome: disciplina.nome,
-                            media: disciplina.media,
-                            status: disciplina.status
-                        }
-                    )
-                })
+function getDisciplinas(numeroMatricula) {
+    let listDisciplinas = []
+    alunos.forEach(element => {
+        if (numeroMatricula == element.matricula) {
+            element.curso.forEach(cursoElement => {
+                cursoElement.disciplinas.forEach(disciplinaElement => {
+                    listDisciplinas.push(disciplinaElement)
+                });
             })
         }
-    })
-    listId.aluno = listAlunosByid
-    return listId
-
+    });
+    return listDisciplinas
 }
+
+
+function getAlunosStatus(statusAluno, nomeCurso) {
+    let status = statusAluno
+    let curso = nomeCurso
+    let erro = true;
+    let listStatus = []
+    let alunosDisciplina = getAlunos(curso); // Array de alunos de um curso
+    console.log(alunosDisciplina)
+    alunosDisciplina.alunos.forEach(element => {
+        if (element.status == status) {
+            listStatus.push(element);
+        }
+    });
+
+    console.log(listStatus)
+}
+getAlunosStatus('Finalizado', 'ds')
+//console.log(getAlunos('DS'))
 
 
 module.exports = {
     getAlunos,
-    getAlunosByid
+    getAlunosById,
+    getDisciplinas,
+    getAlunosStatus
 }
