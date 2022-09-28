@@ -1,24 +1,21 @@
 
-
 const express = require('express')
 
 
-const cors = require('cors')
-
 const bodyParser = require('body-parser')
 const { response } = require('express')
-const { getAlunos, getAlunosByid} = require('./modules/alunos.js')
+const { getAluno, getAlunosById} = require('./modules/alunos.js')
 const {getCursos} = require('./modules/cursos')
 
 const app = express();
 
 const cors = require (cors)
 
-app.get('/curso/', async function (request, response, next) {
+app.get('/curso/:siglaCurso', async function (request, response, next) {
 
 
     //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
-    let siglaCurso = request.query.siglaCurso
+    let siglaCurso = request.params.siglaCurso
     console.log(siglaCurso)
 
     //chama a funcao e encaminha a palavra chave 
@@ -34,7 +31,7 @@ app.get('/curso/', async function (request, response, next) {
 
 
 
-    app.get('/cursoAlunos/', async function (request, response, next) {
+    app.get('/cursoAlunos/:sigla', async function (request, response, next) {
 
 
         //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
@@ -42,10 +39,10 @@ app.get('/curso/', async function (request, response, next) {
         console.log(nomeCursoAlunos)
     
         //chama a funcao e encaminha a palavra chave 
-        let alunos = getAlunos(siglaAlunosCurso)
+        let alunos = getAluno(siglaAlunosCurso)
         if (alunos) {
             response.status(200)
-            response.json(alunos)
+            return response.json(alunos)
         } else {
             response.status(404)
         }
@@ -60,7 +57,7 @@ app.get('/curso/', async function (request, response, next) {
         console.log(numeroAluno)
     
         //chama a funcao e encaminha a palavra chave 
-        let aluno = getAlunosById(numeroMatricula)
+        let aluno = getAluno(matriculaAluno)
         if (aluno) {
             response.status(200)
             response.json(aluno)

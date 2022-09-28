@@ -686,37 +686,53 @@ var alunos = [
     }
 ];
 
-//feito
-function getAlunos(siglaAlunosCurso) {
-    console.log(siglaAlunosCurso)
-    let lista = []
-    let listAlunos = {}
+ const getAluno = (matriculaAluno) => {
+    let aluno = {};
+    let erro = true;
+
+    alunos.forEach(item => {
+        if(matriculaAluno == item.matricula) {
+            aluno.nome = item.nome;
+            aluno.foto = item.foto;
+            aluno.sexo = item.sexo;
+            aluno.matricula = item.matricula;
+            aluno.status = item.status;
+            erro = false;
+        }
+    });
+
+    if (erro) {
+        return false;
+    } else {
+        return aluno;
+    }
+}
+console.log(getAluno("20151001001"))
+
+
+
+const getAlunoPorCurso = (nomeDoCurso) => {
+    let listaAlunos = [];
+    let erro = true;
+
     alunos.forEach(item => {
         item.curso.forEach(item2 => {
-            if (item2.sigla.toLowerCase() == siglaAlunosCurso.toLowerCase()) {
-                lista.push(
-                    {
-                        nome: item.nome,
-                        sigla: item2.sigla,
-                        matricula: item.matricula,
-                        status: item.status,
-                        conclusao: item2.conclusao,
-                        curso: item2.nome
-                    }
-                )
+            if (nomeDoCurso.toLowerCase() == item2.sigla.toLocaleLowerCase()) {
 
+                listaAlunos.push(item);
+
+                erro = false;
             }
+        });
+    });
 
-        })
-    })
-    listAlunos.alunos = lista
-    return listAlunos
+    if (erro) {
+        return false;
+    } else {
+        return listaAlunos;
+    }
 }
 
-
-function getAlunosById(numeroMatricula) {
-    return alunos.filter(index => numeroMatricula == index.matricula);
-}
 
 
 
@@ -735,28 +751,43 @@ function getDisciplinas(numeroMatricula) {
 }
 
 
-function getAlunosStatus(statusAluno, nomeCurso) {
-    let status = statusAluno
-    let curso = nomeCurso
-    let erro = true;
-    let listStatus = []
-    let alunosDisciplina = getAlunos(curso); // Array de alunos de um curso
-    console.log(alunosDisciplina)
-    alunosDisciplina.alunos.forEach(element => {
-        if (element.status == status) {
-            listStatus.push(element);
-        }
-    });
 
-    console.log(listStatus)
+
+const getFiltrarAlunosPorStatus = (statusAluno, nomeCurso) => {
+    let alunoStatus = statusAluno;
+    let curso = nomeCurso;
+    let statusCursos = getAlunoPorCurso(curso);
+    let listaAlunosPorStatus = []
+    let erro = true;
+
+    if (typeof(alunoStatus) != 'undefined'){
+        statusCursos.forEach( item =>{
+            if(item.status.toLowerCase().includes(alunoStatus)){
+                let condicao = {}
+                condicao.foto = item.foto;
+                condicao.nome = item.nome;
+
+                listaAlunosPorStatus.push(condicao);
+            };
+        });
+
+
+    }
+
+    return listaAlunosPorStatus;
 }
-getAlunosStatus('Finalizado', 'ds')
-//console.log(getAlunos('DS'))
+
+//console.table(getFiltrarAlunosPorStatus('finalizado', 'ds'))
+
+
+
+
 
 
 module.exports = {
-    getAlunos,
-    getAlunosById,
-    getDisciplinas,
-    getAlunosStatus
+    // getAlunosPorCurso,
+    // getFiltrarAlunosPorStatus,
+    // getDisciplinas,
+     getAluno
+    
 }
