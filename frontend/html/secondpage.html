@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <script src="./alunos.js" defer type="module"></script>
+    <link rel="stylesheet" href="../css/secondpage.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <script src="./secondPageCards.js" defer type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -32,8 +34,10 @@
          <div class="sair">
        <ul>
          <li>
-             <img src="../imagens/Vector (sair).png" alt="">
-             <span>Sair</span>
+            <a href="../index.html">
+                <img src="../imagens/Vector (sair).png" alt="">
+                <span>Sair</span>
+            </a>
             
          </li>
        </ul>
@@ -42,6 +46,42 @@
      </header>
 
     <main>
+        <div class="Filter-container">
+
+            <div class="selector">
+                <select name="select-status" id="">
+                    <option value="status">Status</option>
+                    <option value="cursando">Cursando</option>
+                    <option value="finalizado">Finalizado</option>
+                </select>
+            </div>
+
+            <div class="divlegenda">
+
+                <span class="legenda">LEGENDA</span>         
+                <div class="blue-block"></div>
+                <span class="text-cursando">Cursando</span>
+                <div class="yellow-block"></div>   
+                <span class="text-finalizado">Finalizado</span>
+
+            </div>    
+
+        </div>
+         
+        <div class="card-container">
+
+            <div class="card">
+                    <span>foto</span>
+                    <span>nome</span>
+            </div>
+
+            <div class="card">
+                    <span>foto</span>
+                    <span>nome</span>
+            </div>
+
+        </div>
+
      
     </main>
     

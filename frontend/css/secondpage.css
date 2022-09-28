@@ -1,0 +1,46 @@
+
+.Filter-container{
+    
+    background-color:#BCC2E5 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 0 5.9375rem;
+
+}
+.divlegenda{
+    gap: 10px;
+    display:flex ;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.blue-block{
+    background-color: #3347B0;
+    height: 20px;
+    width: 20px;
+
+}
+.text-cursando{
+color: #3347B0;
+
+}
+.yellow-block{
+    background-color: #E5B657;
+    height: 20px;
+    width: 20px;
+}
+
+.text-finalizado{
+
+color: #3347B0;
+}
+
+.legenda{
+color: #3347B0;
+}

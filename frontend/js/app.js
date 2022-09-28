@@ -27,7 +27,7 @@ const createCards = (cursos = []) => {
         a.append(span) // a --> span
 
         a.addEventListener('click', (event) => {
-            const id = event.target.id;
+            const id = a.id;
 
             localStorage.setItem('cursoID', id); // valor salvo no browser
 
