@@ -33,3 +33,9 @@ strong{
 i{
     color: #fff;
 }
+
+:root{
+  --desaproved-color: #C11010;
+  --aproved-color: #3347B0;
+  --exam-color:#E5B657;
+}

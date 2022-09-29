@@ -8,6 +8,7 @@ const {
     getAluno,
     getAlunosPorCurso,
     getFiltrarAlunosPorStatus,
+    getDisciplinas,
 } = require('./modules/alunos.js')
 
 const {
@@ -115,8 +116,24 @@ app.get('/alunos/:curso/:status', async (req, res) => {
 })
 
 
+app.get('/listaAlunos/:numeroMatricula', async function (request, response) {
+    //recebe a variavel nome por QueryString (indicada quando precisamos fazer filtros)
+
+    const numeroMatricula = request.params.numeroMatricula
+
+    //chama a funcao e encaminha a palavra chave 
+
+    const listDisciplinas= getDisciplinas(numeroMatricula)
+
+    if (listDisciplinas) {
+        response.status(200)
+        response.json(listDisciplinas)
+    } else {
+        response.status(404)
+    }
+})
 // init server
 
-app.listen(3000, () => {
+app.listen(5050, () => {
     console.log('aguardando servidor')
 })

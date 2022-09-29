@@ -1,3 +1,12 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
 
 .Filter-container{
     
@@ -43,4 +52,36 @@ color: #3347B0;
 
 .legenda{
 color: #3347B0;
+}
+
+.card-cursando{
+    background-color: #3347B0;
+    box-shadow: 8px 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column ;
+    height: 300px;
+    width: 200px;
+
+    
+}
+
+.card-finalizado{
+    background-color: #E5B657;
+    box-shadow: 8px 8px 12px;
+    border-radius: 4px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+}
+.card-container{
+display: flex;
+flex-grow: 4;
+align-items: center;
+gap: 80px;
 }
