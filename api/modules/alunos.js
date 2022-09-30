@@ -707,21 +707,29 @@ var alunos = [
         return aluno;
     }
 }
-console.log(getAluno("20151001001"))
+
 
 
 
 const getAlunosPorCurso = (nomeDoCurso) => {
-    let listaAlunos = [];
+    let listaAlunosJson = {}
+    let listaAlunosArray = [];
     let erro = true;
 
     alunos.forEach(item => {
         item.curso.forEach(item2 => {
             if (nomeDoCurso.toLowerCase() == item2.sigla.toLocaleLowerCase()) {
 
-                listaAlunos.push(item);
+                listaAlunosArray.push({
+                    foto: item.foto,
+                    nome: item.nome,
+                    status:item.status
+                    
+                })
+                listaAlunosJson.alunos = listaAlunosArray
+                erro = false
 
-                erro = false;
+                
             }
         });
     });
@@ -729,10 +737,11 @@ const getAlunosPorCurso = (nomeDoCurso) => {
     if (erro) {
         return false;
     } else {
-        return listaAlunos;
+        return listaAlunosJson;
     }
 }
-
+    console.log(getAlunosPorCurso("ds"));
+ 
 
 
 
@@ -749,8 +758,6 @@ function getDisciplinas(numeroMatricula) {
     });
     return listDisciplinas
 }
-
-
 
 
 const getFiltrarAlunosPorStatus = (statusAluno, nomeCurso) => {
@@ -771,6 +778,8 @@ const getFiltrarAlunosPorStatus = (statusAluno, nomeCurso) => {
                 aluno.nome = item.nome;
 
                 listaAlunosPorStatus.push(aluno);
+
+
             };
         });
 

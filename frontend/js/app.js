@@ -2,7 +2,7 @@
 const containerCards = document.querySelector('.curse-container')
 
 const fetchCursos = async () => {
-    const rawData = await fetch('http://localhost:3000/cursos/');
+    const rawData = await fetch('http://localhost:5050/cursos/');
     const response = await rawData.json();
     return response;
 }
@@ -36,6 +36,8 @@ const createCards = (cursos = []) => {
 
         containerCards.append(a)
 
+        a.addEventListener('click') 
+        
     })
 }
 
