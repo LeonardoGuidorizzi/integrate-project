@@ -1,17 +1,24 @@
 // js to index.html
 const containerCards = document.querySelector('.curse-container')
 
+// const fetchCursos = async () => {
+//     const rawData = await fetch('http://localhost:5050/cursos/');
+//     const response = await rawData.json();
+//     return response;
+// }
+
 const fetchCursos = async () => {
-    const rawData = await fetch('http://localhost:5050/cursos/');
-    const response = await rawData.json();
-    return response;
+    const url = `http://localhost:5050/cursos/`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
 }
 
 const cursos = await fetchCursos();
 
-const createCards = (cursos = []) => {
-    cursos.forEach((curso) => {
-        // sigla
+const createCards = (curso) => {
+
         const a = document.createElement('a');
         a.classList.add('curse');
         a.id = curso.sigla.toLowerCase();
@@ -25,6 +32,8 @@ const createCards = (cursos = []) => {
 
         a.append(img) // a -> img
         a.append(span) // a --> span
+        
+        containerCards.append(a)
 
         a.addEventListener('click', (event) => {
             const id = a.id;
@@ -34,14 +43,9 @@ const createCards = (cursos = []) => {
             location.href = 'html/secondpage.html'
         })
 
-        containerCards.append(a)
-
-        a.addEventListener('click') 
-        
-    })
 }
 
-createCards(cursos)
+cursos.forEach(createCards)
 
 
 // pegar o valor do localStorage

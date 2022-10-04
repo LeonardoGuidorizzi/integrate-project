@@ -724,7 +724,7 @@ const getAlunosPorCurso = (nomeDoCurso) => {
                     foto: item.foto,
                     nome: item.nome,
                     status:item.status
-                    
+
                 })
                 listaAlunosJson.alunos = listaAlunosArray
                 erro = false
