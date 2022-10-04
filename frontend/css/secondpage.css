@@ -3,7 +3,7 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     
 }
 
@@ -54,7 +54,7 @@ color: #3347B0;
 color: #3347B0;
 }
 
-.card-cursando{
+/* .card-cursando{
     background-color: #3347B0;
     box-shadow: 8px 8px 12px;
     border-radius: 4px;
@@ -78,10 +78,38 @@ color: #3347B0;
     flex-direction: column;
     height: 300px;
     width: 200px;
-}
+} */
+
 .card-container{
 display: flex;
-flex-grow: 4;
+flex-grow: 1;
+flex-wrap: wrap;
+justify-content: center;
 align-items: center;
 gap: 80px;
+}
+
+.card {
+    box-shadow: 8px 8px 12px;
+    border-radius: 4px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+}
+
+.finalizado {
+    background-color: #E5B657;
+
+}
+
+.cursando {
+    background-color: var(--aproved-color);
+
+}
+
+.foto-aluno {
+    width: 90%;
 }
