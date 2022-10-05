@@ -764,7 +764,7 @@ const getFiltrarAlunosPorStatus = (statusAluno, nomeCurso) => {
     let alunoStatus = statusAluno;
     let curso = nomeCurso;
 
-    let filteredStudents = getAlunosPorCurso(curso); // filtrar pelo curso
+    let filteredStudents = getAlunosPorCurso(curso).alunos; // filtrar pelo curso
     
     let listaAlunosPorStatus = []
     
@@ -776,6 +776,7 @@ const getFiltrarAlunosPorStatus = (statusAluno, nomeCurso) => {
                 let aluno = {}
                 aluno.foto = item.foto;
                 aluno.nome = item.nome;
+                aluno.status = item.status;
 
                 listaAlunosPorStatus.push(aluno);
 
